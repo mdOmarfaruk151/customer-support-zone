@@ -1,0 +1,34 @@
+﻿# Customer Support Zone
+
+A React-based Customer Support Zone that displays customer tickets, tracks in-progress tasks, and marks tickets as resolved. It follows the provided Figma-inspired layout and uses React-Toastify for notifications.
+
+## Setup
+
+1. Install dependencies
+
+```
+C:\Program Files\nodejs\npm.cmd install
+```
+
+2. Start the dev server
+
+```
+C:\Program Files\nodejs\npm.cmd run dev
+```
+
+## React Questions
+
+### What is JSX, and why is it used?
+JSX is a syntax extension for JavaScript that lets you write HTML-like markup directly in React components. It is used because it makes UI structure more readable and lets React compile the markup into efficient JavaScript calls.
+
+### What is the difference between State and Props?
+Props are inputs passed into a component by its parent and are read-only inside the child. State is internal data owned by a component that can change over time and cause re-renders.
+
+### What is the useState hook, and how does it work?
+`useState` is a React Hook that lets functional components store and update state. It returns the current state value and a setter function. Calling the setter schedules a re-render with the new state.
+
+### How can you share state between components in React?
+The most common approach is lifting state up to the closest common parent and passing the state and handlers down via props. For larger apps, you can use Context or state management libraries.
+
+### How is event handling done in React?
+Event handling is done by passing event handler functions (like `onClick` or `onChange`) to JSX elements. React wraps native events in a synthetic event system for consistency across browsers.
