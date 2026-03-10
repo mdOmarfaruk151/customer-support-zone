@@ -494,6 +494,8 @@
 
 .page {
   padding: 28px 0 48px;
+  width: min(1120px, 92%);
+  margin: 0 auto;
 }
 
 .page-hero {
@@ -559,6 +561,12 @@
 
   .page-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    width: min(720px, 92%);
   }
 }
 
