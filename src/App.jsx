@@ -13,6 +13,14 @@ import Changelog from './pages/Changelog';
 import Blog from './pages/Blog';
 import Download from './pages/Download';
 import Contact from './pages/Contact';
+import About from './pages/About';
+import Mission from './pages/Mission';
+import Sales from './pages/Sales';
+import Services from './pages/Services';
+import Stories from './pages/Stories';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import Careers from './pages/Careers';
 
 function App() {
   const [tickets, setTickets] = useState(ticketsData);
@@ -106,6 +114,14 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/download" element={<Download />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/mission" element={<Mission />} />
+        <Route path="/sales" element={<Sales />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/stories" element={<Stories />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/careers" element={<Careers />} />
       </Routes>
       <Footer />
       <NewTicketModal

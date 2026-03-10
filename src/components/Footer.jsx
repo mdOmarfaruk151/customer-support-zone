@@ -1,4 +1,31 @@
-﻿function Footer() {
+﻿import { NavLink } from 'react-router-dom';
+
+const companyLinks = [
+  { label: 'About Us', to: '/about' },
+  { label: 'Our Mission', to: '/mission' },
+  { label: 'Contact Sales', to: '/sales' },
+];
+
+const serviceLinks = [
+  { label: 'Products & Services', to: '/services' },
+  { label: 'Customer Stories', to: '/stories' },
+  { label: 'Download Apps', to: '/download' },
+];
+
+const infoLinks = [
+  { label: 'Privacy Policy', to: '/privacy' },
+  { label: 'Terms & Conditions', to: '/terms' },
+  { label: 'Join Us', to: '/careers' },
+];
+
+const socialLinks = [
+  { label: '@cs — Ticket System', href: 'https://example.com' },
+  { label: '@cs — Ticket System', href: 'https://example.com' },
+  { label: '@cs — Ticket System', href: 'https://example.com' },
+  { label: 'support@cst.com', href: 'mailto:support@cst.com' },
+];
+
+function Footer() {
   return (
     <footer className="footer">
       <div className="container footer-grid">
@@ -15,34 +42,43 @@
         <div>
           <h4>Company</h4>
           <ul>
-            <li>About Us</li>
-            <li>Our Mission</li>
-            <li>Contact Sales</li>
+            {companyLinks.map((link) => (
+              <li key={link.label}>
+                <NavLink to={link.to}>{link.label}</NavLink>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
           <h4>Services</h4>
           <ul>
-            <li>Products & Services</li>
-            <li>Customer Stories</li>
-            <li>Download Apps</li>
+            {serviceLinks.map((link) => (
+              <li key={link.label}>
+                <NavLink to={link.to}>{link.label}</NavLink>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
           <h4>Information</h4>
           <ul>
-            <li>Privacy Policy</li>
-            <li>Terms & Conditions</li>
-            <li>Join Us</li>
+            {infoLinks.map((link) => (
+              <li key={link.label}>
+                <NavLink to={link.to}>{link.label}</NavLink>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
           <h4>Social Links</h4>
           <ul className="social">
-            <li>@cs — Ticket System</li>
-            <li>@cs — Ticket System</li>
-            <li>@cs — Ticket System</li>
-            <li>support@cst.com</li>
+            {socialLinks.map((link) => (
+              <li key={link.label}>
+                <a href={link.href} rel="noreferrer">
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
