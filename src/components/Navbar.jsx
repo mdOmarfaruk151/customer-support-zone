@@ -1,6 +1,6 @@
 ﻿const navItems = ['Home', 'FAQ', 'Changelog', 'Blog', 'Download', 'Contact'];
 
-function Navbar() {
+function Navbar({ onNewTicket }) {
   return (
     <header className="navbar">
       <div className="container navbar-inner">
@@ -14,7 +14,7 @@ function Navbar() {
               {item}
             </a>
           ))}
-          <button className="btn btn-primary" type="button">
+          <button className="btn btn-primary" type="button" onClick={onNewTicket}>
             + New Ticket
           </button>
         </nav>

@@ -7,12 +7,21 @@ import Banner from './components/Banner';
 import TicketGrid from './components/TicketGrid';
 import TaskStatus from './components/TaskStatus';
 import Footer from './components/Footer';
+import NewTicketModal from './components/NewTicketModal';
 import ticketsData from './data/tickets';
 
 function App() {
   const [tickets, setTickets] = useState(ticketsData);
   const [tasks, setTasks] = useState([]);
   const [resolved, setResolved] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [newTicket, setNewTicket] = useState({
+    title: '',
+    description: '',
+    customer: '',
+    priority: 'Medium',
+    status: 'Open',
+  });
 
   const handleSelectTicket = (ticket) => {
     const exists = tasks.some((task) => task.id === ticket.id);
@@ -35,9 +44,46 @@ function App() {
     toast.success('Ticket marked as resolved.');
   };
 
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleFormChange = (event) => {
+    const { name, value } = event.target;
+    setNewTicket((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCreateTicket = (event) => {
+    event.preventDefault();
+    const allIds = [...tickets, ...tasks, ...resolved].map((ticket) => Number(ticket.id));
+    const nextId = Math.max(1000, ...allIds) + 1;
+    const createdAt = new Date().toISOString().slice(0, 10);
+
+    const ticket = {
+      id: String(nextId),
+      ...newTicket,
+      createdAt,
+    };
+
+    setTickets((prev) => [ticket, ...prev]);
+    setNewTicket({
+      title: '',
+      description: '',
+      customer: '',
+      priority: 'Medium',
+      status: 'Open',
+    });
+    setIsModalOpen(false);
+    toast.success('New ticket created.');
+  };
+
   return (
     <div className="app">
-      <Navbar />
+      <Navbar onNewTicket={handleOpenModal} />
       <Banner inProgressCount={tasks.length} resolvedCount={resolved.length} />
       <main className="main">
         <div className="container main-grid">
@@ -46,6 +92,13 @@ function App() {
         </div>
       </main>
       <Footer />
+      <NewTicketModal
+        isOpen={isModalOpen}
+        form={newTicket}
+        onChange={handleFormChange}
+        onSubmit={handleCreateTicket}
+        onClose={handleCloseModal}
+      />
       <ToastContainer position="top-right" autoClose={2200} />
     </div>
   );
