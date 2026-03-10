@@ -478,20 +478,47 @@
 
 .social li {
   display: flex;
+}
+
+.social li a {
+  display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.social li::before {
-  content: '';
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: 1px solid #6b7280;
-  background: transparent;
-  display: inline-block;
+.social-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #111318;
+  color: #d1d5db;
+  border: 1px solid #22252d;
 }
 
+.social-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.social-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.social-title {
+  font-size: 0.9rem;
+  color: #f3f4f6;
+}
+
+.social-subtitle {
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
 .footer-bottom {
   text-align: center;
   margin-top: 24px;
