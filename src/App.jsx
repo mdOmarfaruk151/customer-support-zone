@@ -3,12 +3,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Navbar from './components/Navbar';
-import Banner from './components/Banner';
-import TicketGrid from './components/TicketGrid';
-import TaskStatus from './components/TaskStatus';
+import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import NewTicketModal from './components/NewTicketModal';
 import ticketsData from './data/tickets';
+import Home from './pages/Home';
+import FAQ from './pages/FAQ';
+import Changelog from './pages/Changelog';
+import Blog from './pages/Blog';
+import Download from './pages/Download';
+import Contact from './pages/Contact';
 
 function App() {
   const [tickets, setTickets] = useState(ticketsData);
@@ -84,13 +88,25 @@ function App() {
   return (
     <div className="app">
       <Navbar onNewTicket={handleOpenModal} />
-      <Banner inProgressCount={tasks.length} resolvedCount={resolved.length} />
-      <main className="main">
-        <div className="container main-grid">
-          <TicketGrid tickets={tickets} onSelect={handleSelectTicket} />
-          <TaskStatus tasks={tasks} resolved={resolved} onComplete={handleCompleteTicket} />
-        </div>
-      </main>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              tickets={tickets}
+              tasks={tasks}
+              resolved={resolved}
+              onSelectTicket={handleSelectTicket}
+              onCompleteTicket={handleCompleteTicket}
+            />
+          }
+        />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/changelog" element={<Changelog />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/download" element={<Download />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
       <Footer />
       <NewTicketModal
         isOpen={isModalOpen}

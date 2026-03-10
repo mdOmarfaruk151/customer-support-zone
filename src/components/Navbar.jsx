@@ -1,4 +1,13 @@
-﻿const navItems = ['Home', 'FAQ', 'Changelog', 'Blog', 'Download', 'Contact'];
+﻿import { NavLink } from 'react-router-dom';
+
+const navItems = [
+  { label: 'Home', to: '/' },
+  { label: 'FAQ', to: '/faq' },
+  { label: 'Changelog', to: '/changelog' },
+  { label: 'Blog', to: '/blog' },
+  { label: 'Download', to: '/download' },
+  { label: 'Contact', to: '/contact' },
+];
 
 function Navbar({ onNewTicket }) {
   return (
@@ -10,9 +19,13 @@ function Navbar({ onNewTicket }) {
         </div>
         <nav className="nav-links" aria-label="Primary">
           {navItems.map((item) => (
-            <a key={item} href="#" className="nav-link">
-              {item}
-            </a>
+            <NavLink
+              key={item.label}
+              to={item.to}
+              className={({ isActive }) => `nav-link${isActive ? ' is-active' : ''}`}
+            >
+              {item.label}
+            </NavLink>
           ))}
           <button className="btn btn-primary" type="button" onClick={onNewTicket}>
             + New Ticket
