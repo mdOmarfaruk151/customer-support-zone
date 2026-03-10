@@ -16,6 +16,23 @@ C:\Program Files\nodejs\npm.cmd install
 C:\Program Files\nodejs\npm.cmd run dev
 ```
 
+## Preview
+
+- Open `http://localhost:5173` after running the dev server.
+- Expected behaviors:
+- Clicking a ticket adds it to Task Status and increases the In-Progress count.
+- Clicking Complete moves it to Resolved, removes it from Task Status and the ticket list, and updates counts.
+- Toast notifications appear for add/complete actions.
+
+## Submission Checklist
+
+- App matches the provided Customer Support Zone screenshots at desktop width.
+- Tickets render in a two-column grid with real data (10–15 entries).
+- Task Status and Resolved lists behave correctly.
+- Toast notifications replace all alerts.
+- Layout is responsive on mobile.
+- `README.md` answers all React questions.
+
 ## React Questions
 
 ### What is JSX, and why is it used?

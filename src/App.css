@@ -95,6 +95,7 @@
   align-items: center;
   text-align: center;
   box-shadow: 0 18px 30px rgba(31, 41, 55, 0.14);
+  background-size: cover;
 }
 
 .stat-card::after {
@@ -112,6 +113,19 @@
 
 .stat-green {
   background: linear-gradient(135deg, #1fbf72, #0f8f6c);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.25;
+  background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.45) 1px, transparent 2px),
+    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.35) 1px, transparent 2px),
+    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.35) 1px, transparent 2px),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.25) 1px, transparent 2px),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 8px);
+  pointer-events: none;
 }
 
 .stat-label {
@@ -222,6 +236,15 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+}
+
+.status-pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  display: inline-block;
 }
 
 .status-open {
@@ -359,6 +382,22 @@
 .footer .footer-brand {
   margin-bottom: 10px;
   color: #ffffff;
+}
+
+.social li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social li::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid #6b7280;
+  background: transparent;
+  display: inline-block;
 }
 
 .footer-bottom {
