@@ -1,6 +1,28 @@
 ﻿# Customer Support Zone
 
-A React-based Customer Support Zone that displays customer tickets, tracks in-progress tasks, and marks tickets as resolved. It follows the provided Figma-inspired layout and uses React-Toastify for notifications.
+A React-based Customer Support Zone that displays customer tickets, tracks progress, and marks them as resolved. It follows the provided Figma-inspired layout and uses React-Toastify for notifications.
+
+## Features & Requirements (Implemented)
+
+- Navbar with logo, menu links, and functional “+ New Ticket” button.
+- Banner with gradient stat cards for In-Progress and Resolved counts.
+- Ticket grid with 10–15 real JSON tickets (id, title, description, customer, priority, status, createdAt).
+- Task Status section:
+- Click ticket to add to Task Status (toast + count increment).
+- Complete task to move to Resolved list, remove from Tickets, update counts (toast).
+- Footer with functional links and social icons.
+- Responsive layout for mobile and tablet.
+- React Router pages: Home, FAQ, Changelog, Blog, Download, Contact.
+- Footer pages: About, Mission, Contact Sales, Products & Services, Customer Stories, Privacy, Terms, Careers.
+- React-Toastify replaces all alerts.
+
+## Tech Stack
+
+- React + Vite
+- JavaScript
+- HTML/CSS (Vanilla)
+- React Router
+- React-Toastify
 
 ## Setup
 
@@ -23,13 +45,51 @@ C:\Program Files\nodejs\npm.cmd run dev
 - Clicking a ticket adds it to Task Status and increases the In-Progress count.
 - Clicking Complete moves it to Resolved, removes it from Task Status and the ticket list, and updates counts.
 - Toast notifications appear for add/complete actions.
+- “+ New Ticket” opens a modal and adds a real ticket.
+
+## File Structure
+
+```
+src/
+  components/
+    Banner.jsx
+    Footer.jsx
+    Navbar.jsx
+    NewTicketModal.jsx
+    ResolvedList.jsx
+    TaskStatus.jsx
+    TicketCard.jsx
+    TicketGrid.jsx
+  data/
+    tickets.js
+  pages/
+    About.jsx
+    Blog.jsx
+    Careers.jsx
+    Changelog.jsx
+    Contact.jsx
+    Download.jsx
+    FAQ.jsx
+    Home.jsx
+    Mission.jsx
+    Privacy.jsx
+    Sales.jsx
+    Services.jsx
+    Stories.jsx
+    Terms.jsx
+  App.css
+  App.jsx
+  index.css
+  main.jsx
+```
 
 ## Submission Checklist
 
-- App matches the provided Customer Support Zone screenshots at desktop width.
+- Layout matches the Customer Support Zone screenshots at desktop width.
 - Tickets render in a two-column grid with real data (10–15 entries).
 - Task Status and Resolved lists behave correctly.
 - Toast notifications replace all alerts.
+- Footer links are functional.
 - Layout is responsive on mobile.
 - `README.md` answers all React questions.
 
