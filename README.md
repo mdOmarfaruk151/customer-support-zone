@@ -5,7 +5,7 @@ A React-based Customer Support Zone that displays customer tickets, tracks progr
 ## Features & Requirements (Implemented)
 
 - Navbar with logo, menu links, and functional “+ New Ticket” button.
-- Banner with gradient stat cards for In-Progress and Resolved counts.
+- Banner with gradient stat cards and vector wave overlays.
 - Ticket grid with 10–15 real JSON tickets (id, title, description, customer, priority, status, createdAt).
 - Task Status section:
 - Click ticket to add to Task Status (toast + count increment).
@@ -51,6 +51,9 @@ C:\Program Files\nodejs\npm.cmd run dev
 
 ```
 src/
+  assets/
+    vector1.png
+    vector2.png
   components/
     Banner.jsx
     Footer.jsx
