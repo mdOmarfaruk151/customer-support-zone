@@ -124,12 +124,11 @@
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.25;
-  background-image: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.45) 1px, transparent 2px),
-    radial-gradient(circle at 80% 10%, rgba(255, 255, 255, 0.35) 1px, transparent 2px),
-    radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.35) 1px, transparent 2px),
-    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.25) 1px, transparent 2px),
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 8px);
+  opacity: 0.6;
+  background-image: var(--stat-bg);
+  background-repeat: no-repeat;
+  background-position: var(--stat-bg-position, center);
+  background-size: var(--stat-bg-size, cover);
   pointer-events: none;
 }
 
@@ -593,6 +592,16 @@
 
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-card {
+    min-height: 120px;
+  }
+
+  .stat-card::before {
+    opacity: 0.7;
+    background-position: center;
+    background-size: 180% auto;
   }
 
   .footer {
